@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <title></title>
+  </head>
+
+  <style>
+    body {
+      margin: 50px;
+    }
+
+    .margin-t3 {
+      margin-top: 30px;
+    }
+  </style>
+
+  <body>
+
+    <div id="app">
+      <!-- <nav-tabs :selected-tab="pageTheme" @change-tab="changeTheme"></nav-tabs> -->
+      <nav-tabs @change-tab="changeTheme"></nav-tabs>
+
+      <input-text :value="formData.email" :theme="pageTheme" class="margin-t3">Email</input-text>
+      <input-text :value="formData.name" :theme="pageTheme" class="margin-t3">이름</input-text>
+
+      <button-submit :theme="pageTheme" @submit="formSubmit" class="margin-t3"></button-submit>
+    </div>
+
+    <script type="text/javascript">
+
+      var navTab = {
+        props : {
+          'tab' : {
+            type: Object,
+            required: true
+          }
+        },
+        template :
+          '<li :class="{ \'is-active\' : tab.selected }"> <a href="#" @click="selectTab()">{{ tab.name }}</a> </li>',
+        methods : {
+          selectTab() {
+// console.log('selectTab', this.tab);
+            this.$emit('select-tab', this.tab);
+          }
+        }
+      };
+
+      var navTabs = {
+        props : {
+          selectedTab : {
+            type: String,
+            default() {
+              return 'primary';
+            },
+            // required: true
+          }
+        },
+        data() {
+          return {
+            dSelectedTab : null,
+            tabs : [
+              {
+                type : 'primary',
+                name : 'Primary',
+                selected: false
+              },
+              {
+                type : 'info',
+                name : 'Info',
+                selected: false
+              },
+              {
+                type : 'danger',
+                name : 'Danger',
+                selected: false
+              }
+            ]
+          }
+        },
+        components: {
+          'nav-tab' : navTab
+        },
+        template:
+          '<div class="tabs">'
+          + '<ul>'
+            + '<nav-tab v-for="tab in tabs" :tab="tab" :key="tab.type" @select-tab="changeTab"></nav-tab>'
+          + '</ul>'
+          + '</div>',
+
+        methods: {
+          changeTab(selectedTab) {
+            this.tabs.forEach(tab => {
+              tab.selected = (tab.type == selectedTab.type)
+            })
+
+            this.$emit('change-tab', selectedTab.type);
+          }
+        },
+        mounted() {
+          this.tabs.forEach(tab => {
+            tab.selected = (tab.type == this.selectedTab)
+          })
+        },
+      };
+
+      var inputText = {
+        props : [
+          'value',
+          'theme'
+        ],
+        data() {
+          return {
+            themeClass : null,
+            dValue : null
+          }
+        },
+
+        template :
+          '<div class="field is-horizontal">'
+          + '<div class="field-label is-normal"> <label class="label"> <slot></slot> </label> </div>'
+          + '<div class="field-body">'
+            + '<div class="field"> <div class="control">'
+              + '<input class="input" :class="themeClass" type="text" v-model="dValue">'
+            + '</div> </div>'
+          + '</div>'
+          + '</div>',
+
+        methods : {
+          init() {
+            this.themeClass = 'is-'+this.theme;
+          }
+        },
+
+        mounted() {
+          this.dValue = this.value;
+          this.init();
+        },
+
+        updated() {
+          // console.log('updated()');
+          this.init();
+        },
+
+        watch : {
+          // theme(changedTheme) {
+          //   // console.log('watch', changedTheme);
+          //   //this.init();
+          // }
+        }
+      };
+
+      var buttonSubmit = {
+        props : [
+          'theme'
+        ],
+        data() {
+          return {
+            themeClass : null
+          }
+        },
+        template :
+          '<div align="center">'
+            +'<a class="button" :class="themeClass" @click="submit">Submit</a>'
+          +'</div>',
+
+        methods : {
+          init() {
+            this.themeClass = 'is-'+this.theme;
+          },
+          submit() {
+            this.$emit('submit');
+          }
+        },
+
+        mounted() {
+          this.init();
+        },
+
+        updated() {
+          console.log('button.updated');
+          this.init();
+        },
+
+        watch : {
+          theme(changedTheme) {
+            console.log('button.watch', changedTheme);
+            this.init();
+          }
+        }
+      };
+
+      new Vue({
+        el: '#app',
+        data: {
+          pageTheme: 'primary',
+          formData: {
+            email: 'tester',
+            name: '쿡'
+          }
+        },
+
+        components: {
+          'nav-tabs' : navTabs,
+          'input-text' : inputText,
+          'button-submit' : buttonSubmit
+        },
+
+        methods: {
+          changeTheme(changedTheme) {
+// console.log('changeTheme', changedTheme);
+            this.pageTheme = changedTheme;
+          },
+          formSubmit() {
+            console.log('formSubmit', this.formData);
+          }
+        }
+      });
+
+    </script>
+
+  </body>
+</html>
