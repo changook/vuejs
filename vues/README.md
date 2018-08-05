@@ -27,3 +27,5 @@
 <p>이러한 문제점들을 해결하기 위해 모든 데이터 통신 (state) 을 한 곳에서 중앙 집중식으로 관리한다.</p>
 
 <p><img src="https://joshua1988.github.io/images/posts/web/vuejs/vuex-1/vuex-diagram.png" alt="vuex-diagram" /></p>
+
+<h2>주요기능</h2>
