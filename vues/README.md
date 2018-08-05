@@ -32,10 +32,29 @@
 <ol>
   <li>
     <strong>State</strong>
-    <div>ttt</div>
+    <p></p>
   </li>
   <li>Getters</li>
   <li>Mutations</li>
   <li>Actions</li>
   <li>Modules</li>
 </ol>
+
+<h2>뷰의 반응성</h2>
+<p>뷰의 반응성(Vue Reactivity)은 뷰가 데이터 변화를 감지했을 때 자동으로 화면을 다시 갱신하는 특성</p>
+
+<ol>
+    <li>
+    <strong>변경 내용을 추적하는 방법</strong>
+    <p>Vue 인스턴스에 JavaScript 객체를 data 옵션으로 전달하면 Vue는 모든 속성에 Object.defineProperty를 사용하여 getter/setter로 변환합니다. 이는 Vue가 ES5를 사용할 수 없는 IE8 이하를 지원하지 않는 이유입니다.<<br><br>
+
+getter / setter 는 사용자에게는 보이지 않으나 속성에 액세스 하거나 수정할 때 Vue가 종속성 추적 및 변경 알림을 수행할 수 있습니다. 한가지 주의 사항은 변환된 데이터 객체가 기록될 때 브라우저가 getter / setter 형식을 다르게 처리하므로 친숙한 인터페이스를 사용하기 위해 vue-devtools를 설치하는 것이 좋습니다.</p>
+  </li>
+  
+  <li>
+    <strong>비동기 갱신 큐</strong>
+    <p> Vue는 DOM 업데이트를 비동기로 합니다. 데이터 변경이 발견 될 때마다 큐를 열고 같은 이벤트 루프에서 발생하는 모든 데이터 변경을 버퍼에 담습니다. 같은 Watcher가 여러 번 발생하면 대기열에서 한 번만 푸시됩니다. 이 버퍼링된 중복의 제거는 불필요한 계산과 DOM 조작을 피하는 데 있어 중요합니다. 그 다음, 이벤트 루프 “tick”에서 Vue는 대기열을 비우고 실제 (이미 중복 제거 된) 작업을 수행합니다.</p>
+  </li>
+</ol>
+
+
