@@ -20,14 +20,14 @@
 다른 상태관리 패턴이나 라이브러리와 비교했을 때 Vue 의 Reactivity 체계를 효율적으로 활용하여
 화면 업데이트가 가능하다는 차이점이 있다.</p>
 
-<h2 id="상태관리-state-management-가-왜-필요한가">상태관리 (State Management) 가 왜 필요한가?</h2>
+<h3 id="상태관리-state-management-가-왜-필요한가">상태관리 (State Management) 가 왜 필요한가?</h3>
 <p>컴포넌트 기반 프레임워크에서는 화면 구성을 위해 화면 단위를 매우 잘게 쪼개서 컴포넌트로 사용한다. 예를 들면, header, button, list 등의 작은 단위들이 컴포넌트가 되어 한 화면에서 많은 컴포넌트를 사용하게 된다. 이에 따라 <strong>컴포넌트 간의 통신이나 데이터 전달을 좀 더 유기적으로 관리할 필요성이 생긴다.</strong></p>
 
 <p>달리 말해, header -&gt; button, button -&gt; list , button -&gt; footer 등의 <strong>컴포넌트 간 데이터 전달 및 이벤트 통신 등의 여러 컴포넌트의 관계를 한 곳에서 관리하기 쉽게 구조화 하는 것이 State Management</strong>다.</p>
 
 <p>Vue 와 성격이 유사한 프론트엔드 프레임워크인 React 에서는 이미 Redux, Flux 와 같은 상태 라이브러리를 사용하고 있고, Vue 도 Vuex 라는 상태관리 라이브러리를 사용한다.</p>
 
-<h2 id="상태관리로-해결할-수-있는-문제점">상태관리로 해결할 수 있는 문제점?</h2>
+<h3 id="상태관리로-해결할-수-있는-문제점">상태관리로 해결할 수 있는 문제점?</h3>
 <p>상태관리는 중대형 규모의 앱 컴포넌트들을 더 효율적으로 관리하기 위한 기법이다.
 일반적으로 앱의 규모가 커지면서 생기는 문제점들은 아래와 같다.</p>
 
@@ -40,7 +40,7 @@
 
 <p><img src="https://joshua1988.github.io/images/posts/web/vuejs/vuex-1/vuex-diagram.png" alt="vuex-diagram" /></p>
 
-<h2>주요기능</h2>
+<h3>주요기능</h3>
 <ol>
   <li>State</li>
   <li>Getters</li>
@@ -75,3 +75,35 @@ getter / setter 는 사용자에게는 보이지 않으나 속성에 액세스 �
 
 <h2>Webpack</h2>
 <h3>웹팩이란?</h3>
+<p>앵귤러 리엑트 뷰에서 모두 권하는 모듈번들러로, 서로 연관이 있는 모듈간의 관계를 해석하여 정적인 자원으로 변환해 주는 변환 도구</p>
+
+<h3>주요 속성</h3>
+<ol>
+  <ul>
+   <strong>entry</strong>
+   <p>웹팩으로 빌드할 대상 파일을 지정하는 속성</p>
+  </ul>
+
+  <ul>
+   <strong>output</strong>
+   <p>빌드한 결과물의 위치와 파일이름등 세부옵션을 설정하는 속성</p>
+  </ul>
+  
+
+  <ul>
+   <strong>loader</strong>
+   <p>웹팩으로 빌드할때 html, css, png 파일등을 자바스크립트로 변환하기 위해 필요한 설정을 정의하는 속성입니다</p>
+  </ul>
+  
+
+  <ul>
+   <strong>plugin</strong>
+   <p>웹팩으로 빌드하고 나온 결과물에 대해 추가 기능을 제공하는 속성입니다</p>
+  </ul>
+  
+
+  <ul>
+   <strong>resolve</strong>
+   <p>웹팩으로 빌드할때 해당 파일이 어떻게 해석되는지 정의하는 속성 (ex 로딩 버전, 파일경로 등)</p>
+  </ul>
+ </ol>
