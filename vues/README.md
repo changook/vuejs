@@ -30,7 +30,10 @@
 
 <h2>주요기능</h2>
 <ol>
-  <li>State</li>
+  <li>
+    <strong>State</strong>
+    <div>ttt</div>
+  </li>
   <li>Getters</li>
   <li>Mutations</li>
   <li>Actions</li>
