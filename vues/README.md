@@ -10,7 +10,7 @@
 1. https://ssr.vuejs.org/
 
 - webpack
-1. 
+1. https://webpack.js.org/plugins/loader-options-plugin/
 
 
 
