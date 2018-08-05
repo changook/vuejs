@@ -29,3 +29,10 @@
 <p><img src="https://joshua1988.github.io/images/posts/web/vuejs/vuex-1/vuex-diagram.png" alt="vuex-diagram" /></p>
 
 <h2>주요기능</h2>
+<ol>
+  <li>State</li>
+  <li>Getters</li>
+  <li>Mutations</li>
+  <li>Actions</li>
+  <li>Modules</li>
+</ol>
