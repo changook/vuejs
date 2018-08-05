@@ -46,7 +46,7 @@
 <ol>
     <li>
     <strong>변경 내용을 추적하는 방법</strong>
-    <p>Vue 인스턴스에 JavaScript 객체를 data 옵션으로 전달하면 Vue는 모든 속성에 Object.defineProperty를 사용하여 getter/setter로 변환합니다. 이는 Vue가 ES5를 사용할 수 없는 IE8 이하를 지원하지 않는 이유입니다.<<br><br>
+    <p>Vue 인스턴스에 JavaScript 객체를 data 옵션으로 전달하면 Vue는 모든 속성에 Object.defineProperty를 사용하여 getter/setter로 변환합니다. 이는 Vue가 ES5를 사용할 수 없는 IE8 이하를 지원하지 않는 이유입니다.<br>
 
 getter / setter 는 사용자에게는 보이지 않으나 속성에 액세스 하거나 수정할 때 Vue가 종속성 추적 및 변경 알림을 수행할 수 있습니다. 한가지 주의 사항은 변환된 데이터 객체가 기록될 때 브라우저가 getter / setter 형식을 다르게 처리하므로 친숙한 인터페이스를 사용하기 위해 vue-devtools를 설치하는 것이 좋습니다.</p>
   </li>
