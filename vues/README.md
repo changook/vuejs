@@ -79,31 +79,31 @@ getter / setter 는 사용자에게는 보이지 않으나 속성에 액세스 �
 
 <h3>주요 속성</h3>
 <ol>
-  <ul>
+  <li>
    <strong>entry</strong>
    <p>웹팩으로 빌드할 대상 파일을 지정하는 속성</p>
-  </ul>
+  </li>
 
-  <ul>
+  <li>
    <strong>output</strong>
    <p>빌드한 결과물의 위치와 파일이름등 세부옵션을 설정하는 속성</p>
-  </ul>
+  </li>
   
 
-  <ul>
+  <li>
    <strong>loader</strong>
    <p>웹팩으로 빌드할때 html, css, png 파일등을 자바스크립트로 변환하기 위해 필요한 설정을 정의하는 속성입니다</p>
-  </ul>
+  </li>
   
 
-  <ul>
+  <li>
    <strong>plugin</strong>
    <p>웹팩으로 빌드하고 나온 결과물에 대해 추가 기능을 제공하는 속성입니다</p>
-  </ul>
+  </li>
   
 
-  <ul>
+  <li>
    <strong>resolve</strong>
    <p>웹팩으로 빌드할때 해당 파일이 어떻게 해석되는지 정의하는 속성 (ex 로딩 버전, 파일경로 등)</p>
-  </ul>
+  </li>
  </ol>
