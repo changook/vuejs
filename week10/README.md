@@ -13,7 +13,8 @@
 1. https://webpack.js.org/plugins/loader-options-plugin/
 
 
-
+<br>
+<br>
 
 <h2 id="vuex-란">Vuex 란?</h2>
 <p>Vue.js 의 <strong>상태관리</strong> 를 위한 패턴이자 라이브러리.
